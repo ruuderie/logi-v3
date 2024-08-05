@@ -1,0 +1,82 @@
+use serde::{Deserialize, Serialize};
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct Vehicle {
+    pub id: String,
+    pub make: String,
+    pub model: String,
+    pub plate_number: String,
+    pub status: String,
+    pub trim: String,
+    pub vin: String,
+    pub year: String,
+    pub created_at: Option<String>,
+    pub driver: Option<String>,
+    pub model_data: Option<ModelData>,
+    pub name: Option<String>,
+    pub photo_url: Option<String>,
+    pub type_: Option<String>, // Renamed from "type" to avoid keyword conflict
+    pub updated_at: Option<String>,
+    pub vin_data: Option<VinData>,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct ModelData {
+    #[serde(rename = "0_to_100_kph")]
+    pub zero_to_100_kph: String,
+    pub body: String,
+    pub co2: String,
+    pub doors: u32,
+    pub drive: String,
+    pub engine_bore_mm: String,
+    pub engine_cc: u32,
+    pub engine_compression: String,
+    pub engine_cyl: u32,
+    pub engine_fuel: String,
+    pub engine_position: String,
+    pub engine_power_ps: u32,
+    pub engine_power_rpm: u32,
+    pub engine_stroke_mm: String,
+    pub engine_torque_nm: u32,
+    pub engine_torque_rpm: u32,
+    pub engine_valves_per_cyl: u32,
+    pub fuel_cap_l: u32,
+    pub length_mm: u32,
+    pub lkm_city: String,
+    pub lkm_hwy: String,
+    pub lkm_mixed: String,
+    pub make_display: String,
+    pub seats: u32,
+    pub sold_in_us: u32,
+    pub top_speed_kph: String,
+    pub transmission_type: String,
+    pub weight_kg: u32,
+    pub wheelbase_mm: u32,
+    pub width_mm: u32,
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct VinData {
+    pub body: String,
+    pub check_digit: String,
+    pub engine_displacement_ccm: u32,
+    pub engine_model: String,
+    pub engine_power_kw: u32,
+    pub fuel_type_primary: String,
+    pub make: String,
+    pub manufacturer: String,
+    pub manufacturer_address: String,
+    pub model: String,
+    pub model_year: String,
+    pub number_of_doors: String,
+    pub number_of_gears: String,
+    pub plant_city: String,
+    pub plant_country: String,
+    pub plant_state: String,
+    pub product_type: String,
+    pub production_stopped: u32,
+    pub sequential_number: String,
+    pub series: String,
+    pub transmission: String,
+    pub trim: String,
+}
